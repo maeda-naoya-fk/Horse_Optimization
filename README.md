@@ -10,7 +10,7 @@
 
 ## Usage
 
-*```Scraiping(tansyo_url, umatan_url).get()```:スクレイピングでリアルタイムの単勝と馬単のデータを取ってくる  
+```Scraiping(tansyo_url, umatan_url).get()```:スクレイピングでリアルタイムの単勝と馬単のデータを取ってくる  
 取得データ元:<a href="https://www.netkeiba.com/">netkeiba.com</a>     
 <a href="https://nar.netkeiba.com/odds/index.html?type=b1&race_id=202036062202&rf=shutuba_submenu">単勝（例）</a> 
 <a href="https://nar.netkeiba.com/odds/index.html?type=b6&race_id=202036062202&housiki=c0&rf=shutuba_submenu">馬単（例）</a> 
