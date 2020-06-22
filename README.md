@@ -10,16 +10,16 @@
 
 ## Usage
 
-1.```Scraiping(tansyo_url, umatan_url).get()```:スクレイピングでリアルタイムの単勝と馬単のデータを取ってくる  
+*```Scraiping(tansyo_url, umatan_url).get()```:スクレイピングでリアルタイムの単勝と馬単のデータを取ってくる  
 取得データ元:<a href="https://www.netkeiba.com/">netkeiba.com  
 <a href="https://nar.netkeiba.com/odds/index.html?type=b1&race_id=202036062202&rf=shutuba_submenu">単勝（例）  
 <a href="https://nar.netkeiba.com/odds/index.html?type=b6&race_id=202036062202&housiki=c0&rf=shutuba_submenu">馬単（例）  
-  
-2.```Relative(sc_df).sum_odds()```:スクレイピングしてきたデータ（sc_df）を入れると馬単合成オッズが出力される  
-3.```Choise(re_df).combine()```:比較(上の作業)で得られたデータを入れると必勝法に使う馬単の番号がlistで出力される  
-4.```Winning(sc_df[単勝], sc_df['i'], sc_df['j'](=None)).model_0()```:model_0(ベット枚数を最小、どの馬が勝っても払い戻し金が0以上)を得る  
-5.```Winning(sc_df[単勝], sc_df['i'], sc_df['j'](=None)).model_1(100)```:model_1(払い戻し金の総額が最大、どの馬が勝っても払い戻し金が0以上、ベット枚数の上限（100枚）)を得る  
-6.```Winning(sc_df[単勝], sc_df['i'], sc_df['j'](=None)).result(model_0(or model_1)))```:結果と、最適化問題が解けたか解けていないかが出力される 
+    
+*```Relative(sc_df).sum_odds()```:スクレイピングしてきたデータ（sc_df）を入れると馬単合成オッズが出力される  
+*```Choise(re_df).combine()```:比較(上の作業)で得られたデータを入れると必勝法に使う馬単の番号がlistで出力される  
+*```Winning(sc_df[単勝], sc_df['i'], sc_df['j'](=None)).model_0()```:model_0(ベット枚数を最小、どの馬が勝っても払い戻し金が0以上)を得る  
+*```Winning(sc_df[単勝], sc_df['i'], sc_df['j'](=None)).model_1(100)```:model_1(払い戻し金の総額が最大、どの馬が勝っても払い戻し金が0以上、ベット枚数の上限（100枚）)を得る  
+*```Winning(sc_df[単勝], sc_df['i'], sc_df['j'](=None)).result(model_0(or model_1)))```:結果と、最適化問題が解けたか解けていないかが出力される 
 
 ## Comment
 
