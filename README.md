@@ -6,11 +6,11 @@
 
 スクレイピングでパラメータ（**info**）を設定すれば、そのデータをとることが出来る。
 最適化(pulp)によって競馬必勝法のプログラムを作成しモジュール化しました。これにより、時間をかけずに負けない賭け方を出力する。
-(参考記事:<a href="https://www.umameshi.com/info/0011.html">うまめし.com 競馬必勝法)  
+(参考記事:<a href="https://www.umameshi.com/info/0011.html">うまめし.com 競馬必勝法)</a> 
 
 ## Usage
 
-```Scraiping(tansyo_url, umatan_url).get()```:スクレイピングでリアルタイムの単勝と馬単のデータを取ってくる  
+*```Scraiping(tansyo_url, umatan_url).get()```:スクレイピングでリアルタイムの単勝と馬単のデータを取ってくる  
 取得データ元:<a href="https://www.netkeiba.com/">netkeiba.com</a>     
 <a href="https://nar.netkeiba.com/odds/index.html?type=b1&race_id=202036062202&rf=shutuba_submenu">単勝（例）</a> 
 <a href="https://nar.netkeiba.com/odds/index.html?type=b6&race_id=202036062202&housiki=c0&rf=shutuba_submenu">馬単（例）</a> 
