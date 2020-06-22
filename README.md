@@ -11,9 +11,9 @@
 ## Usage
 
 *```Scraiping(tansyo_url, umatan_url).get()```:スクレイピングでリアルタイムの単勝と馬単のデータを取ってくる  
--取得データ元:<a href="https://www.netkeiba.com/">netkeiba.com    
--<a href="https://nar.netkeiba.com/odds/index.html?type=b1&race_id=202036062202&rf=shutuba_submenu">単勝（例）  
--<a href="https://nar.netkeiba.com/odds/index.html?type=b6&race_id=202036062202&housiki=c0&rf=shutuba_submenu">馬単（例）  
+-取得データ元:<a href="https://www.netkeiba.com/">netkeiba.com</a>    
+-<a href="https://nar.netkeiba.com/odds/index.html?type=b1&race_id=202036062202&rf=shutuba_submenu">単勝（例）</a>
+-<a href="https://nar.netkeiba.com/odds/index.html?type=b6&race_id=202036062202&housiki=c0&rf=shutuba_submenu">馬単（例）</a>
     
 *```Relative(sc_df).sum_odds()```:スクレイピングしてきたデータ（sc_df）を入れると馬単合成オッズが出力される  
 *```Choise(re_df).combine()```:比較(上の作業)で得られたデータを入れると必勝法に使う馬単の番号がlistで出力される  
