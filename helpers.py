@@ -2,18 +2,21 @@ import pandas as pd
 import numpy as np
 import itertools
 
+# 馬単合成オッズとその差をdfで返す
 class Relative:
-
+    
+    # スクレイピングしてきたデータ（sc_df）を入れる
     def __init__(self, sc_df):
 
         self.sc_df = sc_df
-
+        
+    
     def sum_odds(self):
 
         length = len(self.sc_df)
 
+        # 馬単合成オッズを作る
         umatan_sum = np.array([np.nan for i in range(length)])
-
         for l in range(length):
 
             if self.sc_df[str(l+1)].isnull().values.sum() != length:
@@ -21,7 +24,7 @@ class Relative:
                 a = np.sum(1 / umatan)
                 umatan_sum[l] = 1 / a
 
-
+        # 馬単合成オッズ-単勝オッズの差
         diff = umatan_sum - self.sc_df['単勝']
 
         horse_number = [str(i) for i in range(1, length+1)]
@@ -57,7 +60,7 @@ class Choise:
         return cho_df
 
 
-
+# 単勝と馬単オッズをつなぎ合わせる。また確率も計算する
 class Connect:
 
     def __init__(self, tansyo, umatan_ = None, umatan__ = None):
@@ -74,7 +77,8 @@ class Connect:
         propability = 0.8/self.tansyo
         df = self.get_df(self.tansyo, propability)
         co_df.append(df)
-
+           
+        #引数umatan_にいれたら処理が実行
         if type(self.umatan_) == pd.Series:
 
             index_ = self.get_index(self.umatan_)
@@ -82,14 +86,16 @@ class Connect:
             df_ = self.get_df(self.umatan_, propability_, index_)
 
             co_df.append(df_)
-
+        
+        #引数umatan__にいれたら上と同じような処理を実行
         if type(self.umatan__) == pd.Series:
 
             index__ = self.get_index(self.umatan__)
             propability__ = self.get_propability(propability, index__)
             df__ = self.get_df(self.umatan__, propability__, index__)
             co_df.append(df__)
-
+        
+        # 最終的にデータを縦に連結する。またNanになっているところを消す
         co_df = pd.concat(co_df)
         co_df = co_df.set_index('馬番')
         co_df = co_df.dropna()
@@ -101,7 +107,7 @@ class Connect:
 
         return co_df
 
-
+    # 馬単でnanになっているところ（自分自身）のindexをとる
     def get_index(self, umatan):
 
         umatan_null = umatan.loc[self.tansyo.isnull() == False]
@@ -109,14 +115,16 @@ class Connect:
         index = int(umatan_null.index[0]) - 1
 
         return index
-
+    
+    # 確率を計算
     def get_propability(self, propability, index):
 
         propability_copy = propability.copy()
         propability_copy[index] = np.nan
 
         return propability[index] * propability_copy / (1 - propability[index])
-
+    
+    # dfを作成する。これらを最終的に縦に連結
     def get_df(self, tan, propability, index = None):
 
         if index == None:
